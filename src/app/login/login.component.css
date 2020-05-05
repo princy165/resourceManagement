@@ -1,0 +1,27 @@
+@media sccreen and(min-width:480px){
+    #container{width:150px;float:left;}
+}
+
+.container{
+    padding-right: 55px;
+    padding-left: 355px;
+    padding-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* .header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: #555;
+  } */
+  /* .button{
+    display: block;
+    width: 12em;  
+    padding: 14px 28px;
+  }  */
+.links a{
+  display:block;
+  text-align:center;
+  width:65%
+}

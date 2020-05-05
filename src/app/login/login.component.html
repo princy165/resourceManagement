@@ -1,0 +1,36 @@
+<div class="container">
+    <img src="assets/images/bdlogo.png" width="100" height="100">
+    <h2>Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username" class="col-lg-2" id="username" >Username</label>
+        <div class="col-lg-8">
+            <input type="text" id="username"formControlName="username" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Enter Capgemini User Name eg. mkumar" autofocus/>
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="password" class="col-lg-2" id="password">Password</label>
+        <div class="col-lg-8">
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter Password" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+        </div>
+    </div>
+    <div class="form-group">
+        
+            <button [disabled]="loading" class="btn btn-primary btn-lg btn-block" style="width:65%;background-color: #00288b;">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Login
+            </button> 
+            <!-- <button type="button" class="btn btn-primary btn-xl">Login</button> -->
+            <div class="links">
+                <a routerLink="/signup" class="btn btn-link" style="text-align:center">Sign Up</a>
+            </div>
+    </div>
+</form>
+</div>

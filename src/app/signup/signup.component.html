@@ -1,0 +1,90 @@
+<div class="container">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="loginid" class="col-lg-2" id="loginid" >LoginId</label>
+        <div class="col-lg-6">
+            <input type="text" formControlName="loginid" class="form-control" placeholder="Enter Your Capgemini User Name" [style]="{'width':'12em'}"/>
+            <div *ngIf="loginid.invalid && (loginid.dirty || loginid.touched)" class="alert alert-danger">
+
+                <div *ngIf="loginid.errors.required">
+                  Login Id is required.
+                </div>
+                <div *ngIf="loginid.errors.pattern">
+                  Only alphabets are allowed.
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-lg-2" id="email" >Email</label>
+        <div class="col-lg-6">
+            <input type="text" formControlName="email" class="form-control" placeholder="Enter Your Capgemini Mail Id"/>
+            <!-- <span *ngIf="!email.pristine && email.hasError('required')" class="text-danger">Email is required</span> -->
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+                <div *ngIf="email.errors.required">
+                  Email is required.
+                </div>
+                <div *ngIf="email.errors.pattern">
+                  Email must be folowed by capgemini email pattern.
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-lg-2" id="password" >Password</label>
+        <div class="col-lg-6">
+            <input type="password" formControlName="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8"/>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                <div *ngIf="password.errors.required">
+                  Password is required.
+                </div>
+                <div *ngIf="password.errors.pattern">
+                  Password Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    Password must be atleast 8 characters long.
+                  </div>
+              </div>
+            
+       </div>
+    </div>
+    <div class="form-group">
+        <label for="secqu" class="col-lg-2" id="secqu">Security Question</label>
+        <div class="col-lg-6">
+            <select id="secqu" formControlName="secqu" class="form-control">
+            <option value="q1">What is your mother median name</option>
+            <option value ="q2">What is your favourite colour</option>
+            <option value="q3">What is your pet name</option>
+            <option value="q4">What is your birth date and it should be in dd/mm/yyyy format </option>
+            </select>
+        
+         <!-- <div *ngIf="secqu.touched" class="alert alert-danger">
+               <div *ngIf="secqu.required">
+                  Securitu Question is required
+              </div>
+          </div> -->
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="answer" class="col-lg-2" id="answer">Answer</label>
+        <div class="col-lg-6">
+            <input type="text" formControlName="answer" class="form-control"/>
+            <div *ngIf="answer.invalid && (answer.dirty || answer.touched)" class="alert alert-danger">
+                <div *ngIf="answer.errors.required">
+                    Answer is required
+                </div>
+            </div>
+       </div>
+    </div>
+        <div class="form-group">
+            <button type="submit" [disabled]="!signupForm.valid"class="btn btn-primary">
+            Submit
+            </button>
+            <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+    
+        </div>
+</form>
+</div>
+

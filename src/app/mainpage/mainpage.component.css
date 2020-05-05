@@ -1,0 +1,18 @@
+.header{
+    background-color: #00288b;
+    font-style: white;
+}
+.container{
+    display:flex;
+}
+ /* a.ex1 b:hover{
+
+    background-color: palevioletred;
+}   */
+ /* a.navbar:hover{
+    background-color: yellowgreen;
+} 
+   */
+   b:hover{
+       background-color: pink;
+   }
