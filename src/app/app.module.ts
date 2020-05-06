@@ -7,14 +7,16 @@ import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { IndexpageComponent } from './indexpage/indexpage.component';
-import { SignupComponent } from './signup/signup.component'
+import { SignupComponent } from './signup/signup.component';
+import { TaggingComponent } from './tagging/tagging.component'
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainpageComponent,
     IndexpageComponent,
-    SignupComponent
+    SignupComponent,
+    TaggingComponent
   ],
   imports: [
     BrowserModule,

@@ -4,12 +4,14 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { LoginComponent } from './login/login.component';
 import { IndexpageComponent } from './indexpage/indexpage.component';
 import { SignupComponent } from './signup/signup.component';
+import { TaggingComponent } from './tagging/tagging.component';
 
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'mainpage',component:MainpageComponent},
   {path:'signup',component:SignupComponent},
+  {path:'tagging',component:TaggingComponent},
   {path:'**',component:LoginComponent}
 ];
 

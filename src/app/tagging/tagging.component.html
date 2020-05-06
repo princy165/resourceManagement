@@ -1,0 +1,253 @@
+
+      
+      <div class="container">
+        <div class="card m-3">
+            <div class="card-header" style="background-color:darkgrey ;">
+            <h5 >Staffing Tool</h5>
+            <button  class="btn btn-info" style="float: right;" (click)="updateProfile()" >Update Profile</button>
+            </div>
+            <form [formGroup]="taggingForm" (ngSubmit)="onSubmit()">
+            <div class="card-body" style="background-color:whitesmoke;">
+            
+            <div class="form-row">
+  
+              
+                <div class="form-group col-4">
+                    <label>EMP ID</label>
+                    <input type="text"  formControlName="empID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.empID.errors }" />
+                    <div *ngIf="submitted && f.empID.errors" class="invalid-feedback">
+                        <div *ngIf="f.empID.errors.required">Emp ID is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>CorpID</label>
+                    <input type="text" formControlName="CorpID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CorpID.errors }" />
+                    <div *ngIf="submitted && f.CorpID.errors" class="invalid-feedback">
+                        <div *ngIf="f.CorpID.errors.required">CorpID is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                  <label>BDID</label>
+                  <input type="text" formControlName="BD" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.BD.errors }" />
+                  <div *ngIf="submitted && f.BD.errors" class="invalid-feedback">
+                      <div *ngIf="f.BD.errors.required">CorpID is required</div>
+                  </div>
+              </div>
+                
+            </div>
+            <div class="form-row">
+              
+              <div class="form-group col-6">
+                  <label>First Name</label>
+                  <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                  </div>
+              </div>
+              <div class="form-group col-6">
+                  <label>Last Name</label>
+                  <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                  </div>
+              </div>
+          
+              
+          </div>
+  
+          <div class="form-row">
+              <div class="form-group col-md-7">
+                  <label>Email</label>
+                      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-6">
+                <label>BD Manager ID</label>
+                <input type="text" formControlName="BDID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.BDID.errors }" />
+                <div *ngIf="submitted && f.BDID.errors" class="invalid-feedback">
+                    <div *ngIf="f.BDID.errors.required">First Name is required</div>
+                </div>
+            </div>
+            <div class="form-group col-6">
+                <label>BD Manager</label>
+                <input type="text" formControlName="BDMgr" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.BDMgr.errors }" />
+                <div *ngIf="submitted && f.BDMgr.errors" class="invalid-feedback">
+                    <div *ngIf="f.BDMgr.errors.required">Last Name is required</div>
+                </div>
+            </div>
+        </div>
+          <div class="form-row">
+                  <div class="form-group col-4">
+                      
+                      <label for="WorkL">Work Location</label>
+                   <select placeholder="Work Location" formControlName="WorkL" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && WorkL.invalid }" required>
+                      <option *ngFor="let WorkL of WorkLs" [value]="WorkL.id"> {{WorkL.name}}</option>
+                   </select>
+                   <div *ngIf="f.submitted && WorkL.invalid" class="invalid-text">
+                  <div *ngIf="country.errors.required">Work Location is required</div>
+                   </div>
+                  </div>
+                  <div class="form-group col-4">
+                  
+                      <label>Country</label>
+                      <input type="text" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+                      <div *ngIf="f.submitted && country.invalid" class="invalid-text">
+                     <div *ngIf="country.errors.required">candle is required</div>
+                      </div>
+                      </div>
+                      <div class="form-group col-4">
+                  
+                          <label>Country2</label>
+                          <input type="text" formControlName="country2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country2.errors }" />
+                          <div *ngIf="f.submitted && candle.invalid" class="invalid-text">
+                         <div *ngIf="country2.errors.required">candle is required</div>
+                          </div>
+                       </div>
+          </div>
+           <div class="form-row">
+              
+                   <div class="form-group col-4">
+  
+                      <label for="intcandle">Internal-Candle</label>
+                   <select placeholder="Work Location" formControlName="intcandle" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && intcandle.invalid }" required>
+                      <option *ngFor="let intcandle of intcandles" > {{intcandle}}</option>
+                   </select>
+                   <div *ngIf="f.submitted && intcandle.invalid" class="invalid-text">
+                  <div *ngIf="intcandle.errors.required">int candle is required</div>
+                   </div>
+                  </div> 
+                  <div class="form-group col-4">
+                  
+                      <label for="candle">Candle</label>
+                      <input type="text" formControlName="candle" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Candle.errors }" />
+                      <div *ngIf="f.submitted && candle.invalid" class="invalid-text">
+                     <div *ngIf="candle.errors.required">candle is required</div>
+                      </div>
+                      </div>
+                      <div class="form-group col-4">
+                  
+                          <label for="candle">Grouping</label>
+                          <input type="text" formControlName="grp" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.grp.errors }" />
+                          <div *ngIf="f.submitted && grp.invalid" class="invalid-text">
+                         <div *ngIf="grp.errors.required">candle is required</div>
+                          </div>
+                       </div> 
+          </div>
+          <div class="form-row">
+              <div class="form-group col-6">
+                  
+                  <label for="Skill">Skills</label>
+                  <select placeholder="Skill" formControlName="skill" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && Skill.invalid }" required>
+                     <option *ngFor="let Skill of Skills" [value]="Skill.id"> {{Skill.name}}</option>
+                  </select>
+                  <div *ngIf="f.submitted && Skill.invalid" class="invalid-text">
+                 <div *ngIf="Skill.errors.required">Skille is required</div>
+                  </div>
+                 </div>
+                  
+                 
+                  <div class="form-group col-6">
+                      
+                      <label for="Subskill">Sub Skills</label>
+                   <select placeholder="Work Location" formControlName="Subskill" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && Subskill.invalid }" required>
+                      <option *ngFor="let Subskill of Subskills" [value]="Subskill.id"> {{Subskill.name}}</option>
+                   </select>
+                   <div *ngIf="f.submitted && Subskill.invalid" class="invalid-text">
+                  <div *ngIf="Subskill.errors.required">int candle is required</div>
+                   </div>
+                  </div>
+  
+                  
+          </div>
+          <div class="form-row">
+              <div class="form-group col-4">
+                <label>Start Date</label>
+                  <input type="date" formControlName="startDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }" />
+                  <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+                      <div *ngIf="f.startDate.errors.required">startDate is required</div>
+                  </div>
+  
+  
+                  </div>
+                  <div class="form-group col-4">
+                    <label>End Date</label>
+                    <input type="date" formControlName="endDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }" />
+                    <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.endDate.errors.required">startDate is required</div>
+                    </div>
+  
+  
+                   
+                  </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-4">
+                  
+                  <label for="WorkL">Grade</label>
+               <select placeholder="" formControlName="grade" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && grade.invalid }" required>
+                  <option *ngFor="let grade of grades" [value]="grade.id"> {{grade.name}}</option>
+               </select>
+               <div *ngIf="f.submitted && WorkL.invalid" class="invalid-text">
+              <div *ngIf="grade.errors.required">Work Location is required</div>
+               </div>
+              </div>
+              <div class="form-group col-4">
+              
+                  <label>Grade2</label>
+                  <input type="text" formControlName="grade2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.grade2.errors }" />
+                  <div *ngIf="f.submitted && grade2.invalid" class="invalid-text">
+                 <div *ngIf="grade2.errors.required">candle is required</div>
+                  </div>
+                  </div>
+                  <div class="form-group col-4">
+              
+                      <label>Serviceline</label>
+                      <input type="text" formControlName="sl" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sl.errors }" />
+                      <div *ngIf="f.submitted && sl.invalid" class="invalid-text">
+                     <div *ngIf="sl.errors.required">candle is required</div>
+                      </div>
+                   </div>
+      </div>
+      
+  
+      <div class="form-row">
+          <!-- offset-md-3 -->
+           <label>Address :</label>
+          <div class="form-group col-6 ">
+              <h3></h3>
+           
+            
+                  <div class="form-group col">
+                     
+                      
+                      <textarea type="textArea" formControlName="address" style="height:100px" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" >
+                      </textarea>
+                  </div>
+                                                                                                                                      
+                 
+                
+                 
+                  
+          </div>
+          
+      </div> 
+     
+          
+       
+  
+    </div>
+    
+    <div class="card-footer text-center" style="background-color:darkgrey ;">
+      <div class="form-group">
+          <button class="btn btn-primary" >Submit</button>
+      </div>
+    </div>
+  </form>
+  </div>
+  </div>
+  
